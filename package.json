@@ -3,10 +3,14 @@
 	"version": "0.0.1",
 	"description": "web component base template",
 	"source": "src/index.js",
-	"esmodule": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"bundle": "microbundle -f modern -o index.js --sourcemap false"
+		"bundle:min": "microbundle -f modern -o dist/index.min.js --sourcemap false",
+		"bundle:std": "microbundle -f modern -o dist/index.js --sourcemap false --compress false",
+		"watch": "microbundle -f modern -o dist/index.js --sourcemap false --compress false",
+		"clean": "rm -rf dist/",
+		"build": "npm-run-all clean bundle:*",
+		"start": "npm-run-all clean watch"
 	},
 	"repository": {
 		"type": "git",
